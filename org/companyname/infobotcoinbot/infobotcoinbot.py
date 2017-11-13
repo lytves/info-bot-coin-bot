@@ -14,19 +14,11 @@ bot = telebot.TeleBot(token)
 
 server = Flask(__name__)
 
-# on the start command to user would send a userkeyboard
 @bot.message_handler(commands=['start'])
 def start(message):
-    # create userkeyboard, resize = true, autohide=true
-    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
-    user_markup.row("/Bitcoin", "/Ethereum")
-    user_markup.row("/BitConnect", "/BitcoinCash")
-    user_markup.row("/settings")
-
     # send a message to a user with new keyboard
     bot.send_message(message.from_user.id, 'Hello, ' + message.from_user.first_name
-                     + '. I am your Crypto Coins Info Bot! Use a keyboard for receive info about a price of a crypto coin.',
-                     reply_markup=user_markup)
+                     + '. I am a simple InfoBotCoinBot.')
 
 # for reply for user with its own message
 # @bot.message_handler(func=lambda message: True, content_types=['text'])

@@ -16,9 +16,11 @@ server = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    # create userkeyboard, resize = true, autohide=true
+    user_markup = telebot.types.ReplyKeyboardRemove(selective=False)
     # send a message to a user with new keyboard
     bot.send_message(message.from_user.id, 'Hello, ' + message.from_user.first_name
-                     + '. I am a simple InfoBotCoinBot.',reply_markup=None)
+                     + '. I am a simple InfoBotCoinBot.', reply_markup=user_markup)
 
 # for reply for user with its own message
 # @bot.message_handler(func=lambda message: True, content_types=['text'])

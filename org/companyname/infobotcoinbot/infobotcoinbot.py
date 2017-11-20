@@ -28,7 +28,7 @@ def requestAPI():
            + "\nLast 24 hours changed for: " + rate24h + "%" \
            + "\nLast 7 days changed for: " + rate7d + "%"
     bot.send_message(chatID, text)
-    threading.Timer(600, requestAPI).start()
+    threading.Timer(3600, requestAPI).start()
 
 requestAPI()
 

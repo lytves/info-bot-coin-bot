@@ -8,6 +8,8 @@ Has been used [pyTelegramBotAPI Library ](https://github.com/eternnoir/pyTelegra
 
 With using webhook updates method for recieve the messages.  
 
+Add your bot to your telegram channel and make it an administrator for send the messages. 
+
 ---
 
 Has been deployed on Heroku servers. Put the Token of you bot and the URL of your heroku app to the Heroku environment settings:

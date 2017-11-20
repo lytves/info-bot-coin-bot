@@ -1,6 +1,6 @@
 import telebot
 import os
-import requests
+import time, threading
 from flask import Flask, request
 
 # set up config variables en your heroku environment
@@ -14,15 +14,14 @@ bot = telebot.TeleBot(token)
 
 server = Flask(__name__)
 
+def foo():
+    print(time.ctime())
+    threading.Timer(10, foo).start()
+
+foo()
+
 @bot.message_handler(commands=['start'])
 def start(message):
-    # create userkeyboard, resize = true, autohide=true
-    user_markup = telebot.types.ReplyKeyboardRemove(selective=False)
-    # send a message to a user with new keyboard
-
-    # bot.send_message(message.from_user.id, 'Hello, ' + message.from_user.first_name
-    #                  + '. I am a simple InfoBotCoinBot.', reply_markup=user_markup)
-
     bot.send_message('@CryptoInfoMe', 'Message to the Chat!')
 
 # for reply for user with its own message

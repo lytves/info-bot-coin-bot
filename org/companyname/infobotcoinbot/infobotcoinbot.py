@@ -1,5 +1,6 @@
 import telebot
 import os
+import requests
 import time, threading
 from flask import Flask, request
 
@@ -14,21 +15,20 @@ bot = telebot.TeleBot(token)
 
 server = Flask(__name__)
 
-def foo():
-    print(time.ctime())
-    threading.Timer(10, foo).start()
+def requestAPI():
+    url = "https://api.coinmarketcap.com/v1/ticker/bitcoin"
+    response = requests.get(url)
+    name = response.json()[0]['name']
+    price = response.json()[0]['price_usd']
+    rate24h = response.json()[0]['percent_change_24h']
+    rate7d = response.json()[0]['percent_change_7d']
+    text = "Current " + name + " price - ${}".format(price) \
+           + "\nLast 24 hours changed for: " + rate24h + "%" \
+           + "\nLast 7 days changed for: " + rate7d + "%"
+    bot.send_message('@CryptoInfoMe', text)
+    threading.Timer(10, requestAPI).start()
 
-foo()
-
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message('@CryptoInfoMe', 'Message to the Chat!')
-
-# for reply for user with its own message
-# @bot.message_handler(func=lambda message: True, content_types=['text'])
-#def echo_message(message):
-#    bot.reply_to(message, message.text)
-# end
+requestAPI()
 
 @server.route("/bot", methods=['POST'])
 def getMessage():

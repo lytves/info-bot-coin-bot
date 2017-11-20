@@ -23,8 +23,7 @@ def start(message):
     # bot.send_message(message.from_user.id, 'Hello, ' + message.from_user.first_name
     #                  + '. I am a simple InfoBotCoinBot.', reply_markup=user_markup)
 
-    bot.send_message('@CryptoInfoMe', 'Hello, ' + message.from_user.first_name
-                     + '. I am a simple InfoBotCoinBot.', reply_markup=user_markup)
+    bot.send_message('@CryptoInfoMe', 'Message to the Chat!', reply_markup=user_markup)
 
 # for reply for user with its own message
 # @bot.message_handler(func=lambda message: True, content_types=['text'])

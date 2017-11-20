@@ -28,6 +28,7 @@ def requestAPI():
            + "\nLast 24 hours changed for: " + rate24h + "%" \
            + "\nLast 7 days changed for: " + rate7d + "%"
     bot.send_message(chatID, text)
+    # time period each 3600 seconds = 1 hour
     threading.Timer(3600, requestAPI).start()
 
 requestAPI()

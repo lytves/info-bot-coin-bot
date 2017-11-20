@@ -9,6 +9,8 @@ from flask import Flask, request
 token = os.environ.get('TOKEN')
 # your heroku app URL and add path "bot" for active update
 appURL = os.environ.get('APPURL') + '/bot'
+# your chatID of your channel
+chatID = os.environ.get('CHATID')
 # end of read config variables
 
 bot = telebot.TeleBot(token)
@@ -25,8 +27,8 @@ def requestAPI():
     text = "Current " + name + " price - ${}".format(price) \
            + "\nLast 24 hours changed for: " + rate24h + "%" \
            + "\nLast 7 days changed for: " + rate7d + "%"
-    bot.send_message('@CryptoInfoMe', text)
-    threading.Timer(3600, requestAPI).start()
+    bot.send_message('chatID', text)
+    threading.Timer(600, requestAPI).start()
 
 requestAPI()
 

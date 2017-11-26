@@ -30,13 +30,20 @@ def requestAPI():
     text = "Current " + name + " price - ${}".format(price) \
            + "\nLast 24 hours changed for: " + rate24h + "%" \
            + "\nLast 7 days changed for: " + rate7d + "%"
-    # bot.send_message(chatID, text)
+    bot.send_message(chatID, text)
     # time period each 3600 seconds = 1 hour
-    # threading.Timer(3600, requestAPI).start()
+    threading.Timer(3600, requestAPI).start()
 
     bot.send_message('@isabotschannel', text)
 
 requestAPI()
+
+
+def requestBOTS():
+    bot.send_message('@isabotschannel', 'Let\'s awake bots!')
+    # time period each 1500 seconds = 25 minutes
+    threading.Timer(1500, requestAPI).start()
+
 
 
 @server.route("/bot", methods=['POST'])

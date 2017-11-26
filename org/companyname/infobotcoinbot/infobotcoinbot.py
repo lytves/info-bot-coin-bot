@@ -33,7 +33,6 @@ def requestAPI():
     # bot.send_message(chatID, text)
     # time period each 3600 seconds = 1 hour
     # threading.Timer(3600, requestAPI).start()
-
     bot.send_message('@BotsChannel', text)
 
 requestAPI()

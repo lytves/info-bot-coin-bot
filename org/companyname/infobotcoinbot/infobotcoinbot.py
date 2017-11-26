@@ -31,8 +31,8 @@ def requestAPI():
     # time period each 3600 seconds = 1 hour
     threading.Timer(3600, requestAPI).start()
 
-requestAPI()
-bot.send_message("CryptoCoinsInfoBot", "text")
+# requestAPI()
+bot.send_message("@CryptoCoinsInfoBot", "text")
 
 @server.route("/bot", methods=['POST'])
 def getMessage():

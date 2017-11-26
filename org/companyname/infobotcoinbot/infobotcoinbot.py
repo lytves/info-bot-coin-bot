@@ -3,6 +3,7 @@ import os
 import requests
 import time, threading
 from flask import Flask, request
+import logging
 
 # set up config variables en your heroku environment
 # your bot TOKEN
@@ -14,6 +15,8 @@ chatID = os.environ.get('CHATID')
 # end of read config variables
 
 bot = telebot.TeleBot(token)
+logger = telebot.logger
+telebot.logger.setLevel(logging.DEBUG)
 
 server = Flask(__name__)
 

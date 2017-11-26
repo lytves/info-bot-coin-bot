@@ -34,17 +34,7 @@ def requestAPI():
     # time period each 3600 seconds = 1 hour
     threading.Timer(3600, requestAPI).start()
 
-    bot.send_message('@isabotschannel', text)
-
 requestAPI()
-
-# Is a method for awake the bots on Heroku
-def requestBOTS():
-    bot.send_message('@isabotschannel', 'Let\'s awake bots!')
-    # time period each 1500 seconds = 25 minutes
-    threading.Timer(1500, requestAPI).start()
-
-requestBOTS()
 
 @server.route("/bot", methods=['POST'])
 def getMessage():

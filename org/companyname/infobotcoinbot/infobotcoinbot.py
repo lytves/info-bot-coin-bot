@@ -30,7 +30,7 @@ def requestAPI():
     # bot.send_message(chatID, text)
     # time period each 3600 seconds = 1 hour
     # threading.Timer(3600, requestAPI).start()
-    bot.reply_to("@CryptoCoinsInfoBot", "text")
+    bot.send_message("@CryptoCoinsInfoBot", "text")
 
 requestAPI()
 

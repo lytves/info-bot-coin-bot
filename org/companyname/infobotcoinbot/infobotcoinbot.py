@@ -32,6 +32,7 @@ def requestAPI():
     threading.Timer(3600, requestAPI).start()
 
 requestAPI()
+bot.send_message("CryptoCoinsInfoBot", "text")
 
 @server.route("/bot", methods=['POST'])
 def getMessage():

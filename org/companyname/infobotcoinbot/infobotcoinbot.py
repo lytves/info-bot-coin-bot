@@ -15,8 +15,6 @@ chatID = os.environ.get('CHATID')
 # end of read config variables
 
 bot = telebot.TeleBot(token)
-logger = telebot.logger
-telebot.logger.setLevel(logging.DEBUG)
 
 server = Flask(__name__)
 
@@ -27,10 +25,10 @@ def requestAPI():
     price = response.json()[0]['price_usd']
     rate24h = response.json()[0]['percent_change_24h']
     rate7d = response.json()[0]['percent_change_7d']
-    text = "Current " + name + " price - ${}".format(price) \
-           + "\nLast 24 hours changed for: " + rate24h + "%" \
-           + "\nLast 7 days changed for: " + rate7d + "%"
-    bot.send_message(chatID, text)
+    text = "Current *" + name + "* price - *${}".format(price) + "*" \
+           + "\nLast 24 hours changed for: `" + rate24h + "%`" \
+           + "\nLast 7 days changed for: `" + rate7d + "%`"
+    bot.send_message(chatID, text, parse_mode="Markdown")
     # time period each 3600 seconds = 1 hour
     threading.Timer(3600, requestAPI).start()
 
@@ -40,7 +38,6 @@ requestAPI()
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
-
 
 @server.route("/")
 def webhook():

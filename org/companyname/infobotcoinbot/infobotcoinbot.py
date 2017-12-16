@@ -18,6 +18,12 @@ bot = telebot.TeleBot(token)
 
 server = Flask(__name__)
 
+
+@bot.message_handler(content_types=["text"])
+def handle_text(message):
+    requestAPI(message)
+
+
 def requestAPI(message):
     url = "https://api.coinmarketcap.com/v1/ticker/bitcoin"
     response = requests.get(url)
@@ -53,14 +59,11 @@ def requestAPI(message):
     bot.send_message(message.from_user.id, text, parse_mode="Markdown")
 
 
-@bot.message_handler(content_types=["text"])
-def handle_text(message):
-    requestAPI(message)
-
 @server.route("/bot", methods=['POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
+
 
 @server.route("/")
 def webhook():

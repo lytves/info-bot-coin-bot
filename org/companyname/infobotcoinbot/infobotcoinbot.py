@@ -19,12 +19,7 @@ bot = telebot.TeleBot(token)
 server = Flask(__name__)
 
 
-@bot.message_handler(content_types=["text"])
-def handle_text(message):
-    requestAPI(message)
-
-
-def requestAPI(message):
+def requestAPI():
     url = "https://api.coinmarketcap.com/v1/ticker/bitcoin"
     response = requests.get(url)
     name = response.json()[0]['name']
@@ -52,11 +47,12 @@ def requestAPI(message):
            + "\nLast 24 hours changed for: *" + rate24h + "%*" + rate24hemoji \
            + "\nLast 7 days changed for: *" + rate7d + "%*" + rate7demoji
 
-    # bot.send_message(chatID, text, parse_mode="Markdown")
+    bot.send_message(chatID, text, parse_mode="Markdown")
     # time period each 3600 seconds = 1 hour
-    # threading.Timer(3600, requestAPI).start()
+    threading.Timer(3600, requestAPI).start()
 
-    bot.send_message(message.from_user.id, text, parse_mode="Markdown")
+
+requestAPI()
 
 
 @server.route("/bot", methods=['POST'])

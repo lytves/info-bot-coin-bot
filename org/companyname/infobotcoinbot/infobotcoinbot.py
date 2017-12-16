@@ -52,6 +52,7 @@ def requestAPI(message):
 
     bot.send_message(message.from_user.id, text, parse_mode="Markdown")
 
+
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
     requestAPI(message)

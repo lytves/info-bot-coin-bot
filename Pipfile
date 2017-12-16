@@ -9,6 +9,7 @@ name = "pypi"
 
 pytelegrambotapi = "*"
 flask = "*"
+emoji = "*"
 
 
 [dev-packages]

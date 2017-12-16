@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e664065814775e8792b86472cf537439271674a4404095e0c4835d75bfa933ce"
+            "sha256": "34df98d28d5715e7ced0a808bf37d6ab600df0a2864ed6db3b590a1d7332329e"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -48,6 +48,13 @@
             ],
             "version": "==6.7"
         },
+        "emoji": {
+            "hashes": [
+                "sha256:a06410d5fec2bb81a80d215d9280779492b109bfc79f87e977a8299380802d9c",
+                "sha256:d8bc4a528b0584b755cc160d98a8e6169d4896f2a5be8a964815517ae7ab298e"
+            ],
+            "version": "==0.4.5"
+        },
         "flask": {
             "hashes": [
                 "sha256:0749df235e3ff61ac108f69ac178c9770caeaccad2509cb762ce1f65570a8856",
@@ -83,9 +90,9 @@
         },
         "pytelegrambotapi": {
             "hashes": [
-                "sha256:ad016442db99115c8bb6644e9c887135c00f77fda710b5de595c0bc8c18bbb03"
+                "sha256:d097128ab2c6b43a0219231a4b39da46e3f2960cd8415ad0913c752e335cc4a8"
             ],
-            "version": "==3.4.1"
+            "version": "==3.5.1"
         },
         "requests": {
             "hashes": [
@@ -110,10 +117,10 @@
         },
         "werkzeug": {
             "hashes": [
-                "sha256:e8549c143af3ce6559699a01e26fa4174f4c591dbee0a499f3cd4c3781cdec3d",
-                "sha256:903a7b87b74635244548b30d30db4c8947fe64c5198f58899ddcd3a13c23bb26"
+                "sha256:f3000aa146ce8a9da8ca3e978e0e931c2a58eb56c323a5efb6b4307f7832b549",
+                "sha256:6246e5fc98a505824113fb6aca993d45ea284a2bcffdc2c65d0c538e53e4abd3"
             ],
-            "version": "==0.12.2"
+            "version": "==0.13"
         }
     },
     "develop": {}

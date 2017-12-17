@@ -44,8 +44,8 @@ def requestAPI():
         rate7demoji = emojize(":white_check_mark:", use_aliases=True)
 
     text = "Current *" + name + "* price - *${}".format(price) + "*" \
-           + "\nLast 24 hours changed for: *" + rate24h + "%*" + rate24hemoji \
-           + "\nLast 7 days changed for: *" + rate7d + "%*" + rate7demoji
+           + "\nLast 24hours changed for *" + rate24h + "%*" + rate24hemoji \
+           + "\nLast 7days changed for *" + rate7d + "%*" + rate7demoji
 
     bot.send_message(chatID, text, parse_mode="Markdown")
     # time period each 3600 seconds = 1 hour
